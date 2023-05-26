@@ -27,7 +27,9 @@ class Logic{
           stack[top] = exp[i];
         }
         else{
-          
+          if(exp[i] == '+'){
+            
+          }
         }
       }
       else{
