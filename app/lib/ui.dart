@@ -54,6 +54,7 @@ class AppState extends State<StatefulWidget>{
                 ),
                 textAlign: TextAlign.end,
                 keyboardType: TextInputType.none,
+                readOnly: true,
                 cursorColor: Colors.blue,
                 style: const TextStyle(
                   fontSize: 50
