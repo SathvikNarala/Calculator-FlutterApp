@@ -20,7 +20,10 @@ class Logic{
 
     for (int i = 0; i < exp.length; i++) {
       if (RegExp(r'[-+*/()]').hasMatch(exp[i])) {
-        post = '$post${exp.substring(start, i)},';
+        if(exp[i] != '(' && exp[i - 1] != ')'){
+          post = '$post${exp.substring(start, i)},';
+        }
+        
         start = i + 1;
 
         if (stack.isNotEmpty) {
@@ -33,6 +36,8 @@ class Logic{
           while (topval != '(') {
             topval = stack.removeLast();
             post = post + topval;
+            if(stack.isEmpty) break;
+            topval = stack[stack.length - 1];
           }
           stack.removeLast();
         } else if (exp[i] == '+' || exp[i] == '-') {
@@ -40,6 +45,8 @@ class Logic{
             while (stack.isNotEmpty && topval != '(') {
               topval = stack.removeLast();
               post = post + topval;
+              if(stack.isEmpty) break;
+              topval = stack[stack.length - 1];
             }
           } else {
             if (topval == '+' || topval == '-') {
@@ -53,6 +60,8 @@ class Logic{
           while (stack.isNotEmpty && topval != '(') {
             topval = stack.removeLast();
             post = post + topval;
+            if(stack.isEmpty) break;
+            topval = stack[stack.length - 1];
           }
         } else {
           stack.add(exp[i]);
@@ -60,8 +69,12 @@ class Logic{
       }
     }
 
-    post = '$post${exp.substring(start)},';
-    if (stack.isNotEmpty) post = post + stack.removeLast();
+    if(start < exp.length){
+      post = '$post${exp.substring(start)},';
+    }
+    while(stack.isNotEmpty){
+      post = post + stack.removeLast();
+    } 
     return post;
   }
 

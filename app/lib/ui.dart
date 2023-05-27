@@ -60,7 +60,7 @@ class AppState extends State<StatefulWidget>{
                 ),
                 controller: _arithmetic,
                 validator: (value) {
-                  return RegExp(r'^(\(?[0-9]+(\.[0-9]+)?([-+*/][0-9]+(\.[0-9]+)?)*\)?)*$').hasMatch(value!) ? 
+                  return RegExp(r'^.*$').hasMatch(value!) ? 
                   null : "Requires a valid arithmetic expression";
                 },
               ),
