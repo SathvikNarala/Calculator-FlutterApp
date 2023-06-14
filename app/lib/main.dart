@@ -8,14 +8,10 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: _App(),
+    return const MaterialApp(
+      home: App(),
     );
   }
 
 }
 
-class _App extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => AppState();
-}

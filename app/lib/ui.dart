@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
 
-class AppState extends State<StatefulWidget>{
+class App extends StatefulWidget{
+  const App({super.key});
+
+  @override
+  State<App> createState() => AppState();
+}
+
+class AppState extends State<App>{
   
   final _key = GlobalKey<FormState>();
 
