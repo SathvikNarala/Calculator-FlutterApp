@@ -82,7 +82,7 @@ class AppState extends State<App>{
                   crossAxisCount: 4,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
-                  childAspectRatio: MediaQuery.of(context).size.aspectRatio * 3.0,
+                  childAspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
                   shrinkWrap: true,
                   children: [
                     _makeButton(
